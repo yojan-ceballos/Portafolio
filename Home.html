@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Yojan Ceballos - Desarrollador Full Stack especializado en Laravel, Django y JavaScript">
+    <title>Yojan Ceballos - Desarrollador Full Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Yojan Ceballos</h1>
+                <span>Desarrollador Full Stack</span>
+            </div>
+            <nav>
+                <li onclick="scrollToSection('proyectos')">Proyectos</li>
+                <li onclick="scrollToSection('sobre-mi')">Sobre mí</li>
+                <li onclick="scrollToSection('habilidades')">Habilidades</li>
+            </nav>
+            <a href="https://wa.me/3237011582" class="contact-btn" target="_blank" >
+                <span class="whatsapp-icon">💬</span> Contactar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="grid-wrap">
+                <div class="top-plane"></div>
+                <div class="bottom-plane"></div>
+            </div>
+            <div class="hero-content">
+                <h2>Hola, soy Yojan</h2>
+                <h1>Desarrollador Full Stack</h1>
+                <p>Creo aplicaciones web robustas y escalables con Laravel, Django y JavaScript. Especializado en ecommerce y sistemas empresariales.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+                    <a href="#sobre-mi" class="btn btn-secondary">Conocer más</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="proyectos" class="container">
+            <div class="section-title">
+                <h2>Mis Proyectos</h2>
+                <p>Soluciones web que he desarrollado para diferentes clientes</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">🛒</div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Plataforma completa de comercio electrónico con gestión de productos, carrito de compras y pasarela de pagos integrada.</p>
+                        <div class="project-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">📍</div>
+                    <div class="project-content">
+                        <h3>Rutalmente</h3>
+                        <p>Sistema de gestión de rutas y logística con tracking en tiempo real y optimización de entregas.</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">🏢</div>
+                    <div class="project-content">
+                        <h3>CYSLA</h3>
+                        <p>Sistema empresarial de gestión de recursos humanos y nómina con reportes avanzados.</p>
+                        <div class="project-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#" class="btn btn-primary">Ver más proyectos</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre-mi" class="container">
+            <div class="section-title">
+                <h2>Sobre mí</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="Imagenes/perfil.png" alt="">
+                </div>
+
+                <div class="about-text">
+                    <h3>Desarrollador apasionado por crear soluciones</h3>
+                    <p>Soy un desarrollador full stack con experiencia en la construcción de aplicaciones web modernas y escalables. Me especializo en crear sistemas robustos utilizando frameworks como Laravel y Django, con un enfoque en la calidad del código y las mejores prácticas.</p>
+                    <p>Mi experiencia incluye el desarrollo de plataformas de e-commerce, sistemas de gestión empresarial y aplicaciones web personalizadas. Me apasiona aprender nuevas tecnologías y aplicarlas para resolver problemas reales.</p>
+                    <div class="hero-buttons">
+                        <a 
+                        href="Hoja_de_Vida_Yojan_Esneyder_ceballos_Higuita.docx.pdf"
+                        class="btn btn-primary"
+                        download
+                        >
+                        Descargar CV
+                        </a>
+
+                        <a 
+                            href="https://wa.me/3237011582"
+                            class="btn btn-secondary"
+                            target="_blank"
+                            >
+                            Contactar
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="habilidades" class="container">
+            <div class="section-title">
+                <h2>Mi Stack Tecnológico</h2>
+                <p>Herramientas y tecnologías que domino</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Lenguajes</h3>
+                    <ol>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>PHP</li>
+                    </ol>
+                </div>
+                <div class="skill-category">
+                    <h3>⚙️ Backend</h3>
+                    <ol>
+                        <li>Django</li>
+                        <li>Laravel</li>
+                        <li>Express</li>
+                        <li>Node.js</li>
+                    </ol>
+                </div>
+                <div class="skill-category">
+                    <h3>🎨 Frontend</h3>
+                    <ol>
+                        <li>React</li>
+                        <li>Tailwind CSS</li>
+                        <li>Bootstrap</li>
+                        <li>Semantic UI</li>
+                    </ol>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Herramientas</h3>
+                    <ol>
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                    </ol>
+                </div>
+                <div class="skill-category">
+                    <h3>☁️ Servicios</h3>
+                    <ol>
+                        <li>Render</li>
+                        <li>Heroku</li>
+                        <li>Cloudinary</li>
+                        <li>Hostinger</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="container">
+            <div class="section-title">
+                <h2>Trabajemos juntos</h2>
+                <p>¿Tienes un proyecto en mente? Contáctame</p>
+            </div>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <div class="social-links">
+                    <a href="https://github.com/yojan" target="_blank">💼 GitHub</a>
+                    <a href="https://linkedin.com/in/yojan" target="_blank">🔗 LinkedIn</a>
+                    <a href="mailto:yojan@example.com">✉️ Email</a>
+                    <a href="https://wa.me/3237011582" target="_blank">📱 WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+            <p>© 2024 Yojan Ceballos. Diseñado y desarrollado con ❤️</p>
+        </div>
+    </footer>
+
+    <script src="Js.js"></script>
+</body>
+</html>
