@@ -672,3 +672,109 @@ footer {
     object-position: center;
     display: block;
 }
+
+/* ===== REQUISITOS: ESTILOS PROFESIONALES ===== */
+.card-requisitos {
+  background: linear-gradient(180deg, rgba(20,27,45,0.9), rgba(20,27,45,0.95));
+  border: 1px solid var(--border);
+  padding: 1.6rem;
+  border-radius: 12px;
+  margin-top: 1.6rem;
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+.card-requisitos h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.requisitos-intro {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Lista ordenada principal */
+.req-list {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* cada item de la lista numerada */
+.req-list > li {
+  margin-bottom: 0.9rem;
+  padding-left: 0.45rem;
+}
+
+/* encabezados internos fuertes */
+.req-list strong {
+  color: var(--text);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+/* listas internas (bullets) */
+.req-list ul {
+  margin-top: 0.35rem;
+  margin-left: 0.8rem;
+  list-style: disc;
+}
+
+/* estilo de notas rápidas */
+.requisitos-nota-title {
+  margin-top: 1rem;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.requisitos-nota {
+  margin-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.requisitos-nota li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* icono pequeño antes de cada nota */
+.requisitos-nota li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* código inline */
+.card-requisitos code {
+  background: rgba(255,255,255,0.03);
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.92rem;
+}
+
+/* responsivity */
+@media (max-width: 768px) {
+  .card-requisitos {
+    padding: 1rem;
+  }
+  .req-list strong {
+    font-size: 0.98rem;
+  }
+}
+
