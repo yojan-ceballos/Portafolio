@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Yojan Ceballos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="proyectos.css">
+</head>
+<body>
+    <header id="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Yojan Ceballos</h1>
+                <span>Desarrollador Full Stack</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="index.html#habilidades">Habilidades</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/3237011582" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">💬</span> Contactar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <br>
+        <section class="container">
+            <div class="filters-section">
+                <h2>Filtrar proyectos</h2>
+                <form class="filters-form" id="filtersForm">
+                    <div class="filter-group">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" id="tipo">
+                            <option value="">Todos</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="administracion">Administración</option>
+                            <option value="logistica">Logística</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="lenguaje">Lenguaje</label>
+                        <select name="lenguaje" id="lenguaje">
+                            <option value="">Todos</option>
+                            <option value="python">Python</option>
+                            <option value="php">PHP</option>
+                            <option value="javascript">JavaScript</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="framework">Framework</label>
+                        <select name="framework" id="framework">
+                            <option value="">Todos</option>
+                            <option value="django">Django</option>
+                            <option value="laravel">Laravel</option>
+                            <option value="node">Node.js</option>
+                            <option value="express">Express</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-filter">
+                        <span>🔍</span> Buscar
+                    </button>
+                </form>
+            </div>
+
+            <div class="proyectos-grid">
+                <div class="proyecto-card" data-tipo="ecommerce" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🛒</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(1)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Plataforma completa de comercio electrónico con gestión avanzada</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="logistica" data-lenguaje="python" data-framework="django">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">📍</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(2)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Rutalmente</h3>
+                        <p>Sistema de gestión de rutas y logística con tracking en tiempo real</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="administracion" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🏢</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(3)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>CYSLA</h3>
+                        <p>Sistema empresarial de gestión de recursos humanos y nómina</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modales (abreviados por espacio) -->
+    <div class="modal-proyecto" id="proyecto1">
+        <div class="modal-overlay" onclick="cerrarProyecto(1)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(1)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <div class="image-placeholder-large">🛒</div>
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>E-commerce Platform</h2>
+                        <p class="proyecto-subtitle">Plataforma completa de comercio electrónico</p>
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2024</span>
+                            <span class="meta-item">⏱️ 3 meses</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">php</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">carrito de compras</span>
+                            <span class="tag">crud compelto de productos</span>
+                            <span class="tag">vista de productos</span>
+                            <span class="tag">concecion con cloudinary</span>
+                            <span class="tag">mejorar encarpetados</span>
+                            <span class="tag">mejorar estrucura de codigo</span>
+                            <span class="tag">mejorar estructura de base de datos</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Sobre el Proyecto</h3>
+                    <p>Plataforma de e-commerce completa con funcionalidades avanzadas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="proyectos.js"></script>
+</body>
+</html>
