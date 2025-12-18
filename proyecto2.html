@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Yojan Ceballos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="proyectos.css">
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="slider" id="slider-global">
+        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+        <div class="slider-content">
+            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+            <img id="slider-img" src="" alt="Imagen ampliada">
+
+            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+            <div class="slider-counter" id="slider-counter"></div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Yojan Ceballos</h1>
+                <span>Desarrollador Full Stack</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="index.html#habilidades">Habilidades</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/3237011582" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">💬</span> Contactar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <br>
+        <section class="container">
+            <div class="filters-section">
+                <h2>Filtrar proyectos</h2>
+                <form class="filters-form" id="filtersForm">
+                    <div class="filter-group">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" id="tipo">
+                            <option value="">Todos</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="administracion">Administración</option>
+                            <option value="logistica">Logística</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="lenguaje">Lenguaje</label>
+                        <select name="lenguaje" id="lenguaje">
+                            <option value="">Todos</option>
+                            <option value="python">Python</option>
+                            <option value="php">PHP</option>
+                            <option value="javascript">JavaScript</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="framework">Framework</label>
+                        <select name="framework" id="framework">
+                            <option value="">Todos</option>
+                            <option value="django">Django</option>
+                            <option value="laravel">Laravel</option>
+                            <option value="node">Node.js</option>
+                            <option value="express">Express</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-filter">
+                        <span>🔍</span> Buscar
+                    </button>
+                </form>
+            </div>
+
+            <div class="proyectos-grid">
+                <div class="proyecto-card" data-tipo="ecommerce" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🛒</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(1)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Empresa x</h3>
+                        <p>E-commerce que se encarga de vender productos campesionos.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="logistica" data-lenguaje="python" data-framework="django">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">📍</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(2)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Empresa x</h3>
+                        <p>Sistema de inventario para una empresa de ganado y cultivos.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="administracion" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🏢</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(3)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Hotel Master</h3>
+                        <p>Sistema completo que se encarga de gestinar todo lo que se requiere en un hotel.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modales (corregidos: IDs únicos y onclicks correctos) -->
+    <div class="modal-proyecto" id="proyecto1">
+        <div class="modal-overlay" onclick="cerrarProyecto(1)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(1)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>E-commerce para una empresa de campesina </h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">php</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">javascript</span>
+                            <span class="tag">sweetalert2</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Carrito de compras</span>
+                            <span class="tag">Crud completoto de productos</span>
+                            <span class="tag">Filtro de productos</span>
+                            <span class="tag">Vista de productos</span>
+                            <span class="tag">Concecion con cloudinary</span>
+                            <span class="tag">Mejorar encarpetados</span>
+                            <span class="tag">Mejorar estrucura de codigo</span>
+                            <span class="tag">Mejorar estructura de base de datos</span>
+                        </div>
+                        <br>
+                        <h4>Backend</h4>
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/Ruralmente/img2.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img3.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img4.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img5.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img6.png" onclick="abrirSliderDesdeImagen(this)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para proyecto 2 (antes tenía id duplicado → corregido a 2) -->
+    <div class="modal-proyecto" id="proyecto2">
+        <div class="modal-overlay" onclick="cerrarProyecto(2)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(2)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>Sistema de Inventario para Ganado y Cultivos</h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Mysql</span>
+                            <span class="tag">Render</span>
+                            <span class="tag">Sweetalert2</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Crud de ganado</span>
+                            <span class="tag">Crud de razas</span>
+                            <span class="tag">Encarpetados</span>
+                            <span class="tag">Subir el proyecto a un servidor(render)</span>
+                            <span class="tag">Hacer la base de datos</span>
+                            <span class="tag">Ayudar en los crud de mis compañeros</span>
+                            <span class="tag">Login y register</span>
+                        </div>
+                        <br>
+                        <h4>Cargo que tuve: Lider de proyecto</h4>
+
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/cysla/img2.png" alt="" id="img1" onclick="ActivarSlider(1)">
+                        <img src="Imagenes/cysla/img3.png" alt="" id="img2" onclick="ActivarSlider(2)">
+                        <img src="Imagenes/cysla/img4.png" alt="" id="img3" onclick="ActivarSlider(3)">
+                        <img src="Imagenes/cysla/img5.png" alt="" id="img4" onclick="ActivarSlider(4)">
+                        <img src="Imagenes/cysla/img6.png" alt="" id="img5" onclick="ActivarSlider(5)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para proyecto 3 (antes repetido como proyecto2 → ahora proyecto3) -->
+    <div class="modal-proyecto" id="proyecto3">
+        <div class="modal-overlay" onclick="cerrarProyecto(3)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(3)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>Sistema de Inventario para Ganado y Cultivos</h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Mysql</span>
+                            <span class="tag">Render</span>
+                            <span class="tag">Sweetalert2</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Crud de ganado</span>
+                            <span class="tag">Crud de razas</span>
+                            <span class="tag">Encarpetados</span>
+                            <span class="tag">Subir el proyecto a un servidor(render)</span>
+                            <span class="tag">Hacer la base de datos</span>
+                            <span class="tag">Ayudar en los crud de mis compañeros</span>
+                            <span class="tag">Login y register</span>
+                        </div>
+                        <br>
+                        <h4>Cargo que tuve: Lider de proyecto</h4>
+
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/Ruralmente/img2.png" alt="" id="img1" onclick="ActivarSlider(1)">
+                        <img src="Imagenes/Ruralmente/img3.png" alt="" id="img2" onclick="ActivarSlider(2)">
+                        <img src="Imagenes/Ruralmente/img4.png" alt="" id="img3" onclick="ActivarSlider(3)">
+                        <img src="Imagenes/Ruralmente/img5.png" alt="" id="img4" onclick="ActivarSlider(4)">
+                        <img src="Imagenes/Ruralmente/img6.png" alt="" id="img5" onclick="ActivarSlider(5)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="proyectos.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Yojan Ceballos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="proyectos.css">
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="slider" id="slider-global">
+        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+        <div class="slider-content">
+            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+            <img id="slider-img" src="" alt="Imagen ampliada">
+
+            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+            <div class="slider-counter" id="slider-counter"></div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Yojan Ceballos</h1>
+                <span>Desarrollador Full Stack</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="index.html#habilidades">Habilidades</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/3237011582" class="contact-btn" target="_blank">
+                <span class="whatsapp-icon">💬</span> Contactar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <br><br>
+        <br>
+        <section class="container">
+            <div class="filters-section">
+                <h2>Filtrar proyectos</h2>
+                <form class="filters-form" id="filtersForm">
+                    <div class="filter-group">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" id="tipo">
+                            <option value="">Todos</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="administracion">Administración</option>
+                            <option value="logistica">Logística</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="lenguaje">Lenguaje</label>
+                        <select name="lenguaje" id="lenguaje">
+                            <option value="">Todos</option>
+                            <option value="python">Python</option>
+                            <option value="php">PHP</option>
+                            <option value="javascript">JavaScript</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="framework">Framework</label>
+                        <select name="framework" id="framework">
+                            <option value="">Todos</option>
+                            <option value="django">Django</option>
+                            <option value="laravel">Laravel</option>
+                            <option value="node">Node.js</option>
+                            <option value="express">Express</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-filter">
+                        <span>🔍</span> Buscar
+                    </button>
+                </form>
+            </div>
+
+            <div class="proyectos-grid">
+                <div class="proyecto-card" data-tipo="ecommerce" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🛒</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(1)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Empresa x</h3>
+                        <p>E-commerce que se encarga de vender productos campesionos.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="logistica" data-lenguaje="python" data-framework="django">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">📍</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(2)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Empresa x</h3>
+                        <p>Sistema de inventario para una empresa de ganado y cultivos.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Maps API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto-card" data-tipo="administracion" data-lenguaje="php" data-framework="laravel">
+                    <div class="proyecto-image">
+                        <div class="image-placeholder">🏢</div>
+                        <div class="proyecto-overlay">
+                            <button class="btn-view" onclick="verProyecto(3)">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="proyecto-info">
+                        <h3>Hotel Master</h3>
+                        <p>Sistema completo que se encarga de gestinar todo lo que se requiere en un hotel.</p>
+                        <div class="proyecto-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modales (corregidos: IDs únicos y onclicks correctos) -->
+    <div class="modal-proyecto" id="proyecto1">
+        <div class="modal-overlay" onclick="cerrarProyecto(1)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(1)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>E-commerce para una empresa de campesina </h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">php</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">javascript</span>
+                            <span class="tag">sweetalert2</span>
+                            <span class="tag">Cloudinary</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Carrito de compras</span>
+                            <span class="tag">Crud completoto de productos</span>
+                            <span class="tag">Filtro de productos</span>
+                            <span class="tag">Vista de productos</span>
+                            <span class="tag">Concecion con cloudinary</span>
+                            <span class="tag">Mejorar encarpetados</span>
+                            <span class="tag">Mejorar estrucura de codigo</span>
+                            <span class="tag">Mejorar estructura de base de datos</span>
+                        </div>
+                        <br>
+                        <h4>Backend</h4>
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/Ruralmente/img2.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img3.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img4.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img5.png" onclick="abrirSliderDesdeImagen(this)">
+                        <img src="Imagenes/Ruralmente/img6.png" onclick="abrirSliderDesdeImagen(this)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para proyecto 2 (antes tenía id duplicado → corregido a 2) -->
+    <div class="modal-proyecto" id="proyecto2">
+        <div class="modal-overlay" onclick="cerrarProyecto(2)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(2)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>Sistema de Inventario para Ganado y Cultivos</h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Mysql</span>
+                            <span class="tag">Render</span>
+                            <span class="tag">Sweetalert2</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Crud de ganado</span>
+                            <span class="tag">Crud de razas</span>
+                            <span class="tag">Encarpetados</span>
+                            <span class="tag">Subir el proyecto a un servidor(render)</span>
+                            <span class="tag">Hacer la base de datos</span>
+                            <span class="tag">Ayudar en los crud de mis compañeros</span>
+                            <span class="tag">Login y register</span>
+                        </div>
+                        <br>
+                        <h4>Cargo que tuve: Lider de proyecto</h4>
+
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/cysla/img2.png" alt="" id="img1" onclick="ActivarSlider(1)">
+                        <img src="Imagenes/cysla/img3.png" alt="" id="img2" onclick="ActivarSlider(2)">
+                        <img src="Imagenes/cysla/img4.png" alt="" id="img3" onclick="ActivarSlider(3)">
+                        <img src="Imagenes/cysla/img5.png" alt="" id="img4" onclick="ActivarSlider(4)">
+                        <img src="Imagenes/cysla/img6.png" alt="" id="img5" onclick="ActivarSlider(5)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para proyecto 3 (antes repetido como proyecto2 → ahora proyecto3) -->
+    <div class="modal-proyecto" id="proyecto3">
+        <div class="modal-overlay" onclick="cerrarProyecto(3)"></div>
+        <div class="modal-content">
+            <button class="btn-close" onclick="cerrarProyecto(3)">✕</button>
+            <div class="modal-scroll">
+                <div class="proyecto-hero">
+                    <div class="proyecto-hero-image">
+                        <a href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1">
+                            <div class="image-placeholder-large" style="justify-content: center; align-items: center;">
+                                <img src="Imagenes/Ruralmente/img1.jpg" alt="" width="100%" height="100%" style="object-fit: cover;">
+                            </div>
+                        </a>
+                    <div class="contenedor_boton">
+                        <a 
+                            class="btn" 
+                            href="https://www.youtube.com/watch?v=LoheCz4t2xc&list=RDLoheCz4t2xc&start_radio=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver video
+                        </a>
+                    </div>
+
+                    </div>
+                    <div class="proyecto-hero-info">
+                        <h2>Sistema de Inventario para Ganado y Cultivos</h2>
+                        <p class="proyecto-subtitle">
+                            Plataforma de comercio electrónico creada para una empresa campesina que comercializa café, gorras y camisas, 
+                            con el propósito de generar ingresos que contribuyan al apoyo y bienestar de personas con enfermedades mentales que viven en un internado.
+                        </p>
+
+                        <div class="proyecto-meta">
+                            <span class="meta-item">📅 2025</span>
+                            <span class="meta-item">⏱️ 2 semanas</span>
+                        </div>
+                        <h4>Tecnologías Utilizadas:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Mysql</span>
+                            <span class="tag">Render</span>
+                            <span class="tag">Sweetalert2</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <br>
+                        <h4>que hice yo:</h4>
+                        <div class="proyecto-tags">
+                            <span class="tag">Crud de ganado</span>
+                            <span class="tag">Crud de razas</span>
+                            <span class="tag">Encarpetados</span>
+                            <span class="tag">Subir el proyecto a un servidor(render)</span>
+                            <span class="tag">Hacer la base de datos</span>
+                            <span class="tag">Ayudar en los crud de mis compañeros</span>
+                            <span class="tag">Login y register</span>
+                        </div>
+                        <br>
+                        <h4>Cargo que tuve: Lider de proyecto</h4>
+
+                    </div>
+                </div>
+                <div class="proyecto-description">
+                    <h3>Capturas del proyecto</h3>
+                    <p>evidencias del trabajo</p>
+                    <div class="galeria_ruralmente">
+                        <img src="Imagenes/Ruralmente/img2.png" alt="" id="img1" onclick="ActivarSlider(1)">
+                        <img src="Imagenes/Ruralmente/img3.png" alt="" id="img2" onclick="ActivarSlider(2)">
+                        <img src="Imagenes/Ruralmente/img4.png" alt="" id="img3" onclick="ActivarSlider(3)">
+                        <img src="Imagenes/Ruralmente/img5.png" alt="" id="img4" onclick="ActivarSlider(4)">
+                        <img src="Imagenes/Ruralmente/img6.png" alt="" id="img5" onclick="ActivarSlider(5)">
+                    </div>
+
+                    <!-- SLIDER MODAL -->
+                    <div class="slider" id="slider">
+                        <div class="slider-overlay" onclick="cerrarSlider()"></div>
+
+                        <div class="slider-content">
+                            <button class="slider-close" onclick="cerrarSlider()">✕</button>
+
+                            <button class="slider-btn prev" onclick="cambiarSlide(-1)">❮</button>
+
+                            <img id="slider-img" src="" alt="Imagen del proyecto">
+
+                            <button class="slider-btn next" onclick="cambiarSlide(1)">❯</button>
+
+                            <div class="slider-counter" id="slider-counter"></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="requisitos card-requisitos" id="requisitos">
+                    <h3>Requisitos funcionales y técnicos</h3>
+                    <p class="requisitos-intro">
+                        A continuación se presentan los requisitos mínimos y recomendaciones técnicas necesarias para el correcto
+                        funcionamiento del proyecto (basado en las funcionalidades desarrolladas: carrito de compras, CRUD de productos,
+                        filtros, vistas, integración con Cloudinary y mejoras en estructura y base de datos).
+                    </p>
+
+                    <ol class="req-list">
+                        <li>
+                        <strong>Estado y ciclo de vida del producto</strong>
+                        <ul>
+                            <li>Solo los productos con <em>estado = "activo"</em> deben mostrarse como disponibles para agregar al carrito.</li>
+                            <li>Debe existir un campo de estado (activo/inactivo/borrador) con auditoría de cambios (usuario + fecha).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Variantes (talla, color y otras)</strong>
+                        <ul>
+                            <li>Un producto puede tener variantes que cambien totalmente su inventario y precio (ej. talla y color).</li>
+                            <li>Los colores deben guardarse en la base de datos como un <code>array</code> / JSON con identificador, nombre y opcionalmente código hex.</li>
+                            <li>Cada variante debe tener su propio SKU, stock y precio; la vista de producto debe permitir seleccionar variantes antes de añadir al carrito.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Reglas del carrito</strong>
+                        <ul>
+                            <li>No se puede añadir una cantidad menor a 1 por producto; validar input en frontend y backend.</li>
+                            <li>Al agregar una variante, el carrito debe almacenar: producto_id, variante_id, cantidad, precio_unitario y metadatos (color, talla).</li>
+                            <li>Si el stock de la variante es 0, el botón "Agregar al carrito" debe estar deshabilitado y mostrar mensaje claro.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Integración con Cloudinary (imágenes)</strong>
+                        <ul>
+                            <li>Se requiere configurar en servidor las credenciales: <code>cloud_name</code>, <code>api_key</code>, <code>api_secret</code> y la <code>url</code> base.</li>
+                            <li>Las credenciales NUNCA deben exponerse en el cliente: almacenar en variables de entorno del servidor.</li>
+                            <li>Subidas: usar signed uploads o backend endpoint que genere firma; almacenar en la BD la URL pública y el public_id cuando corresponda.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Modelo de datos recomendado</strong>
+                        <ul>
+                            <li>Tabla <code>products</code>: id, name, description, base_price, status, created_at, updated_at.</li>
+                            <li>Tabla <code>variants</code>: id, product_id, sku, price, stock, attributes(JSON) — ejemplo: <code>{ "talla":"M", "color":"#0d6efd" }</code>.</li>
+                            <li>Campo <code>colors</code> en producto: JSON array — ejemplo: <code>["#0d6efd","#ffffff","#000000"]</code>.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Validaciones y seguridad</strong>
+                        <ul>
+                            <li>Validar cantidad y existencia de stock en backend al procesar la orden (previene manipulación desde cliente).</li>
+                            <li>Sanitizar y validar todos los inputs (nombre, descripción, archivos) antes de persistir.</li>
+                            <li>Almacenar credenciales sensibles en variables de entorno y acceso restringido (no en repositorios públicos).</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>API y configuración</strong>
+                        <ul>
+                            <li>Proveer endpoints seguros para: listar productos, obtener variantes, añadir al carrito y procesar stock.</li>
+                            <li>Documentar y almacenar: <code>API_KEY</code>, <code>API_SECRET</code>, <code>CLOUD_NAME</code>, y la <code>BASE_URL</code> de Cloudinary en el servidor.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>UX / Mensajes</strong>
+                        <ul>
+                            <li>Mostrar mensajes claros: producto inactivo, variante sin stock, cantidad mínima, error de subida de imagen, etc.</li>
+                            <li>En el proceso de añadir al carrito, confirmar con un toast o modal (ej. SweetAlert2) y opción de ir al carrito o continuar comprando.</li>
+                        </ul>
+                        </li>
+
+                        <li>
+                        <strong>Pruebas y monitoreo</strong>
+                        <ul>
+                            <li>Tests unitarios para lógica de carrito y cálculos de precio.</li>
+                            <li>Pruebas de integración para endpoints de subida y gestión de variantes.</li>
+                            <li>Monitoreo de errores y alertas en producción (logs y herramientas de trazabilidad).</li>
+                        </ul>
+                        </li>
+                    </ol>
+
+                    <h4 class="requisitos-nota-title">Notas técnicas rápidas</h4>
+                    <ul class="requisitos-nota">
+                        <li>Ejemplo de almacenamiento de colores (JSON): <code>["#0d6efd","#ffffff","#000000"]</code></li>
+                        <li>Ejemplo de estructura de <code>variants.attributes</code> (JSON): <code>{ "talla":"L", "color":"#0d6efd" }</code></li>
+                        <li>Recomendación: usar transacciones al decrementar stock al confirmar órdenes para evitar race conditions.</li>
+                    </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="proyectos.js"></script>
+</body>
+</html>
